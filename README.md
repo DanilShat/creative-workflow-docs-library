@@ -40,6 +40,8 @@ End-to-end flow across both runnable repos, exported from **graphify**:
 - `human_ua/` — Ukrainian product docs. Non-UA readers can skip this folder unless they want the original product-facing explanation.
 - `archive/reviews/` — dated review snapshots kept for traceability.
 
+- `CLAUDE_CODE_COLLABORATION_MANIFEST.md` - shared Codex/Claude design manifest for browser-assisted, Photoshop, and After Effects gates.
+
 ## Recommended reading order
 
 1. `README_START_HERE.md`

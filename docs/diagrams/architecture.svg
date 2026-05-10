@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="280" viewBox="0 0 980 280" role="img" aria-labelledby="title desc">
+  <title id="title">Creative Workflow three-repo architecture</title>
+  <desc id="desc">Docs library defines specs, operator runs the queue and UI, worker laptops execute browser and desktop tool actions.</desc>
+  <style>.bg{fill:#f8fafc}.box{fill:#fff;stroke:#334155;stroke-width:2;rx:8}.spec{fill:#f5f3ff;stroke:#7c3aed}.run{fill:#ecfeff;stroke:#0891b2}.text{font:600 16px Arial, sans-serif;fill:#0f172a}.small{font:13px Arial, sans-serif;fill:#475569}.arrow{stroke:#334155;stroke-width:2;marker-end:url(#arrow)}</style>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker></defs>
+  <rect class="bg" width="980" height="280"/>
+  <rect class="box spec" x="60" y="75" width="220" height="100"/>
+  <text class="text" x="105" y="118">Docs Library</text><text class="small" x="98" y="142">specs, prompts, runbooks</text>
+  <rect class="box run" x="380" y="75" width="220" height="100"/>
+  <text class="text" x="450" y="118">Operator</text><text class="small" x="425" y="142">FastAPI, UI, Postgres</text>
+  <rect class="box run" x="700" y="75" width="220" height="100"/>
+  <text class="text" x="765" y="118">Worker</text><text class="small" x="740" y="142">Playwright, Claude, DCC</text>
+  <line class="arrow" x1="280" y1="125" x2="380" y2="125"/>
+  <line class="arrow" x1="600" y1="125" x2="700" y2="125"/>
+</svg>
