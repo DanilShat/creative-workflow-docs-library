@@ -1,7 +1,7 @@
 Open and read these materials before coding:
 
 - README_START_HERE.md
-- REVIEWER_PATCH_APPLIED_2026_05_04.md
+- archive/reviews/REVIEWER_PATCH_APPLIED_2026_05_04.md
 - skills/README_ua.md
 - all files in skills/
 - codex/39_reviewer_blocker_fixes_applied.md

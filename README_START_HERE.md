@@ -1,60 +1,28 @@
-# Start here — оновлений порядок роботи
+# Start Here
 
-## Найважливіше
-Перед реалізацією спочатку запусти **reviewer-first chat** у Codex.
+This repository is the documentation and specification library for the
+Creative Workflow project. It is not the deployed app.
 
-1. Відкрий цю папку як проект у Codex.
-2. Прочитай `prompts/README_ua.md`.
-3. Першим промптом у новому чаті дай:
-   - `prompts/00_reviewer_first_system_review.md`
-4. Якщо Codex знаходить critical blockers, дай:
-   - `prompts/00_reviewer_gap_closure_patch_request.md`
-5. Лише після цього переходь до implementation prompts.
+## Three repos, one project
 
-Це потрібно, щоб Codex не почав одразу писати код по суперечливих або неповних спеках.
+- `creative_workflow_docs_library` = specs, runbooks, skills, prompts.
+- `creative_workflow_operator` = runs on the operator laptop.
+- `creative_workflow_worker` = runs on each designer laptop.
 
----
+```text
+Operator laptop (creative_workflow_operator) <--> Designer laptop worker (creative_workflow_worker)
+```
 
-# Creative Workflow Docs Library — Start Here
+## Recommended first pass
 
-Це робоча бібліотека документів для збірки **реального MVP**, а не демо.
+1. Read `README.md` for the library index.
+2. Read `codex/00_README_FOR_CODEX.md` for implementation context.
+3. Read `codex/31_implementation_master_plan.md` for the planned build order.
+4. Read `runtime_docs/gate_a_runbook.md` for the runnable Gate A path.
+5. Use `prompts/README_ua.md` only when running the historical Codex prompt sequence.
 
-## Path rule
-If this folder is opened directly in Codex, paths in prompts/specs are relative to this folder. If the parent workspace is opened instead, all prompt/spec paths are relative to `creative_workflow_docs_library/`.
+## Ukrainian original
 
-## Як орієнтуватися
-
-- `human_ua/` — людські документи українською, щоб зрозуміти продукт, архітектуру, межі та rollout.
-- `codex/` — детальні технічні спеки для реалізації.
-- `skills/` — окремо винесені скіли у форматі папка + `SKILL.md`; тепер вони перезібрані на основі сильних GitHub/open-source джерел і мають source map.
-- `prompts/` — готові промпти для роботи з Codex в **одному чаті**, плюс README з поясненням коли який промпт запускати, що очікувати на виході і як перевіряти результат.
-
-## Найкращий шлях роботи
-
-1. Спочатку прочитай `prompts/README_ua.md`.
-2. Потім відкрий папку репозиторію в Codex.
-3. Далі запускай промпти з `prompts/` у вказаному там порядку.
-4. Після кожного етапу перевіряй результати по чеклисту з README.
-
-## Якщо хочеш швидкий старт
-
-- Для себе: `human_ua/00_INDEX_ua.md`, `human_ua/15_server_worker_architecture_ua.md`, `human_ua/16_local_llm_orchestrator_ua.md`, `human_ua/22_plan_rozgortannya_ta_perevirky_ua.md`
-- Для Codex: `codex/00_README_FOR_CODEX.md`, `codex/31_implementation_master_plan.md`, `codex/32_codex_execution_rules_and_skills.md`, `codex/36_codex_master_prompt.md`
-- Для скілів: `skills/README_ua.md`, `skills/00_SKILLS_INDEX.md`, `skills/GITHUB_SKILLS_SOURCE_MAP.md`
-- Для запуску промптів: `prompts/README_ua.md`
-
-
-## Остання ревізія
-
-Додано `SPEC_REVIEW_2026_05_04.md` та `codex/37_spec_review_and_gap_fixes.md`. Вони фіксують реальні прогалини: network/auth між ноутами, browser profile setup, external skills policy, перший вертикальний slice, manual live browser tests і retention.
-
-## v10 patch: актуальні файли перед реалізацією
-
-Після reviewer-first звіту прочитай:
-- `REVIEWER_PATCH_APPLIED_2026_05_04.md`
-- `codex/39_reviewer_blocker_fixes_applied.md`
-- `codex/40_claude_delegate_mcp_integration.md`
-- `runtime_docs/first_vertical_slice.md`
-- `runtime_docs/env.example.md`
-
-Поточне правило: перший MVP gate = Gemini + Freepik browser E2E. Photoshop/AE та Claude йдуть після Gate A, якщо оператор явно не попросить інакше.
+The original Ukrainian onboarding file is kept as `README_START_HERE.uk.md`.
+It is retained for context, but this English file is the visitor-facing entry
+point.

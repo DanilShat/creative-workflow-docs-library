@@ -5,7 +5,7 @@ Use this prompt when you want Codex to re-check the architecture before implemen
 ```text
 Read the following files first:
 
-- SPEC_REVIEW_2026_05_04.md
+- archive/reviews/SPEC_REVIEW_2026_05_04.md
 - skills/00_SKILLS_INDEX.md
 - skills/GITHUB_SKILLS_SOURCE_MAP.md
 - skills/production-engineering/SKILL.md

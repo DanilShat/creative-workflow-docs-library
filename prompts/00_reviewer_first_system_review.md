@@ -20,10 +20,10 @@ First load and use these skills:
 Then read the documentation library in this order:
 
 1. README_START_HERE.md
-2. SPEC_REVIEW_2026_05_04.md
+2. archive/reviews/SPEC_REVIEW_2026_05_04.md
 3. codex/37_spec_review_and_gap_fixes.md
 4. codex/38_reviewer_first_protocol.md
-5. REVIEWER_PATCH_APPLIED_2026_05_04.md
+5. archive/reviews/REVIEWER_PATCH_APPLIED_2026_05_04.md
 6. codex/39_reviewer_blocker_fixes_applied.md
 7. codex/40_claude_delegate_mcp_integration.md
 8. runtime_docs/first_vertical_slice.md

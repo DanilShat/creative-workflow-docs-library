@@ -135,7 +135,7 @@
 
 Перш ніж запускати prompt 01, попроси його прочитати:
 - `README_START_HERE.md`
-- `REVIEWER_PATCH_APPLIED_2026_05_04.md`
+- `archive/reviews/REVIEWER_PATCH_APPLIED_2026_05_04.md`
 - `skills/README_ua.md`
 - усі файли з `skills/`
 - `codex/39_reviewer_blocker_fixes_applied.md`

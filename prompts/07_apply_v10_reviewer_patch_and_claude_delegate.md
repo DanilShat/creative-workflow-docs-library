@@ -1,6 +1,6 @@
 Read the v10 patch files before any implementation work:
 
-- REVIEWER_PATCH_APPLIED_2026_05_04.md
+- archive/reviews/REVIEWER_PATCH_APPLIED_2026_05_04.md
 - codex/39_reviewer_blocker_fixes_applied.md
 - codex/40_claude_delegate_mcp_integration.md
 - runtime_docs/env.example.md
