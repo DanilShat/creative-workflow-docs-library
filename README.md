@@ -41,6 +41,7 @@ End-to-end flow across both runnable repos, exported from **graphify**:
 - `archive/reviews/` — dated review snapshots kept for traceability.
 
 - `CLAUDE_CODE_COLLABORATION_MANIFEST.md` - shared Codex/Claude design manifest for browser-assisted, Photoshop, and After Effects gates.
+- `docs/designer_laptop_ssh_handoff_for_claude.md` - SSH handoff for agents managing the designer laptop from the operator laptop.
 
 ## Recommended reading order
 

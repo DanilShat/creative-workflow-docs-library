@@ -252,3 +252,14 @@ Do not overwrite another agent's handoff entry. Append a new entry.
 - Tests run: worker pytest suite and operator pytest suite.
 - Open questions: real Photoshop action execution, Claude-assisted visible
   browser control, and sample AE project validation remain open.
+
+### 2026-05-11 - Codex
+- Context: Operator-to-designer SSH access was configured for faster remote
+  diagnostics.
+- Decision: Use a dedicated SSH key from the operator laptop to the designer
+  laptop. Keep it command-line only; GUI/browser/DCC validation remains manual.
+- Files changed: `docs/designer_laptop_ssh_handoff_for_claude.md`, this
+  manifest.
+- Tests run: remote SSH login and worker config check.
+- Open questions: Git is not currently available in the designer laptop SSH
+  session, so remote `git pull` needs Git for Windows or PATH setup first.
