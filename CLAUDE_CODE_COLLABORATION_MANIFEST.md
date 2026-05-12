@@ -268,11 +268,11 @@ Do not overwrite another agent's handoff entry. Append a new entry.
   session, so remote `git pull` needs Git for Windows or PATH setup first.
 
 ### 2026-05-12 - Codex
-- Context: Added local-agent chat as the first subscription-CLI integration
+- Context: Added local-agent chat as the first mixed operator/worker agent
   path for Ollama, Claude Code CLI, and Codex CLI.
-- Decision: Codex and Claude are not server API integrations here. They are
-  local CLIs logged in on the designer laptop, invoked by the worker through
-  `designer_agent_chat` jobs.
+- Decision: Ollama runs on the operator laptop. Codex and Claude are not server
+  API integrations here; they are local CLIs logged in on the designer laptop,
+  invoked by the worker through `designer_agent_chat` jobs.
 - Files changed: split-repo worker/operator code and manifests; this manifest.
 - Tests run: targeted operator and worker pytest suites for agent routing,
   API creation, job completion, and worker lifecycle.
