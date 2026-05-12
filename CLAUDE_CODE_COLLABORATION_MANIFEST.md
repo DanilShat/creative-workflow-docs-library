@@ -5,13 +5,16 @@
 This manifest is the shared starting point for Codex, Claude Code, and the
 human operator when designing the next Creative Workflow gates.
 
-The next system layer adds Claude as an optional desktop/browser/DCC sidecar:
+The next system layer adds local agent sidecars as optional desktop/browser/DCC
+helpers:
 
-- Claude can help reason about creative tasks.
-- Claude can operate already trusted visible browser sessions when Playwright
-  login is blocked by provider security checks.
-- Claude can request typed Photoshop and After Effects actions.
-- Claude must not become the authoritative state owner.
+- Ollama handles routine local reasoning.
+- Claude Code CLI and Codex CLI can help reason about creative tasks through
+  subscription accounts logged in on the designer laptop.
+- Claude Code CLI and Codex CLI can operate already trusted visible browser
+  sessions when Playwright login is blocked by provider security checks.
+- Local agents can request typed Photoshop and After Effects actions.
+- Local agents must not become the authoritative state owner.
 
 ## Three repos
 
@@ -22,12 +25,12 @@ The next system layer adds Claude as an optional desktop/browser/DCC sidecar:
   jobs through allowlisted local capabilities.
 
 ```text
-Operator laptop <--> Designer worker laptop <--> Claude Desktop / Claude Code sidecar
+Operator laptop <--> Designer worker laptop <--> Ollama / Claude Code CLI / Codex CLI
 ```
 
 ## Core design decision
 
-Claude is an enhancement layer, not a replacement for the server/worker
+Local agents are an enhancement layer, not a replacement for the server/worker
 protocol.
 
 The operator server remains the source of truth for:
@@ -47,28 +50,28 @@ The designer worker remains the execution boundary for:
 - browser/DCC capability reporting
 - local bridge access
 
-Claude can propose, inspect, and request work. It must not directly mutate
-database state, bypass worker auth, or execute arbitrary host-app code.
+Ollama, Claude Code, and Codex can propose, inspect, and request work. They
+must not directly mutate database state, bypass worker auth, or execute
+arbitrary host-app code.
 
 ## Integration modes
 
-### Mode 1 - Claude handoff prompt
+### Mode 1 - Agent chat job
 
-The Streamlit UI generates a task handoff packet that the designer can paste
-into Claude Desktop or Claude Code.
+The Streamlit UI creates a `designer_agent_chat` worker job. The worker routes
+routine requests to Ollama and escalates browser/creative requests to the
+least-used available Claude Code CLI or Codex CLI account.
 
-The packet contains:
+The job contains:
 
 - task id
-- brief
-- latest artifacts
-- rejection/repair context
-- available actions
-- safety constraints
-- exact MCP/local tool names when configured
+- designer message
+- preferred agent, when the designer forces one
+- small task context packet
+- durable job/run ids for audit
 
-Claude responds with a plan or requests allowlisted actions through the next
-modes.
+The worker returns the reply through normal job completion. This path uses
+subscription CLI logins on the designer laptop, not Anthropic/OpenAI API keys.
 
 ### Mode 2 - Local Claude MCP sidecar
 
@@ -263,3 +266,16 @@ Do not overwrite another agent's handoff entry. Append a new entry.
 - Tests run: remote SSH login and worker config check.
 - Open questions: Git is not currently available in the designer laptop SSH
   session, so remote `git pull` needs Git for Windows or PATH setup first.
+
+### 2026-05-12 - Codex
+- Context: Added local-agent chat as the first subscription-CLI integration
+  path for Ollama, Claude Code CLI, and Codex CLI.
+- Decision: Codex and Claude are not server API integrations here. They are
+  local CLIs logged in on the designer laptop, invoked by the worker through
+  `designer_agent_chat` jobs.
+- Files changed: split-repo worker/operator code and manifests; this manifest.
+- Tests run: targeted operator and worker pytest suites for agent routing,
+  API creation, job completion, and worker lifecycle.
+- Open questions: live CLI flags and browser-capable Codex behavior still need
+  validation after the user installs/logs in to Codex and Claude Code on the
+  designer laptop.
